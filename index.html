@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Nation - Premium Computer Accessories</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c63ff;
+            --primary-dark: #554fd8;
+            --secondary: #ff6584;
+            --dark: #1a1a2e;
+            --dark-light: #2a2a3e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --card-bg: #232339;
+            --shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--primary);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-icons button, .nav-icons a {
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .nav-icons button:hover, .nav-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--dark) 0%, #0f0f1f 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(108, 99, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #b0b0d0;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 99, 255, 0.4);
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            background-color: var(--dark-light);
+            color: var(--light);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* Product Card */
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-card.featured:before {
+            content: 'FEATURED';
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .product-image {
+            height: 200px;
+            background-color: #33334d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            max-width: 80%;
+            max-height: 80%;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .product-name {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .product-description {
+            color: #b0b0d0;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .original-price {
+            font-size: 1.1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .action-btn.whatsapp {
+            background-color: #25D366;
+            color: white;
+        }
+
+        .action-btn.whatsapp:hover {
+            background-color: #1da851;
+        }
+
+        .action-btn.cart {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .action-btn.cart:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .admin-toggle {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+            transition: all 0.3s;
+        }
+
+        .admin-toggle:hover {
+            transform: rotate(90deg);
+            background-color: var(--primary-dark);
+        }
+
+        .admin-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1002;
+        }
+
+        .admin-modal.active {
+            display: flex;
+        }
+
+        .admin-form {
+            background-color: var(--dark-light);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .admin-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #3a3a4e;
+            border: 1px solid #4a4a5e;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #b0b0d0;
+            font-size: 0.85rem;
+        }
+
+        .admin-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .admin-buttons button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-save {
+            background-color: var(--success);
+            color: white;
+        }
+
+        .btn-cancel {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-edit {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        .btn-delete {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-light);
+            padding: 60px 0 30px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #b0b0d0;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background-color: #3a3a4e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #3a3a4e;
+            color: #b0b0d0;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .category-filter {
+                gap: 10px;
+            }
+            
+            .category-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Admin Panel Toggle -->
+    <div class="admin-panel">
+        <button class="admin-toggle" id="adminToggle">
+            <i class="fas fa-cog"></i>
+        </button>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="admin-modal" id="adminModal">
+        <div class="admin-form">
+            <h2>Admin Panel</h2>
+            <div class="form-group">
+                <label for="adminEmail">Email</label>
+                <input type="email" id="adminEmail" placeholder="Enter admin email">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Password</label>
+                <input type="password" id="adminPassword" placeholder="Enter admin password">
+            </div>
+            <div class="admin-buttons">
+                <button class="btn-save" id="adminLogin">Login</button>
+                <button class="btn-cancel" id="adminCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Product Management Modal -->
+    <div class="admin-modal" id="productModal">
+        <div class="admin-form">
+            <h2>Manage Product</h2>
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" placeholder="Enter product name">
+            </div>
+            <div class="form-group">
+                <label for="productCategory">Category</label>
+                <select id="productCategory">
+                    <option value="mice">Mice</option>
+                    <option value="keyboards">Keyboards</option>
+                    <option value="headphones">Headphones</option>
+                    <option value="mouse-pads">Mouse Pads</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="productDescription">Description</label>
+                <textarea id="productDescription" placeholder="Enter product description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="productPrice">Price ($)</label>
+                <input type="number" id="productPrice" placeholder="Enter price" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="productOriginalPrice">Original Price ($) - Leave empty if no discount</label>
+                <input type="number" id="productOriginalPrice" placeholder="Enter original price" step="0.01">
+            </div>
+            <div class="form-group">
+                <label for="productImage">Image URL or Local Path</label>
+                <input type="text" id="productImage" placeholder="Enter image URL or path like 'photo/ajazzmouse.jpg'">
+                <small>Use external URL or local path starting with 'photo/'</small>
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="productFeatured"> Featured Product
+                </label>
+            </div>
+            <div class="admin-buttons">
+                <button class="btn-save" id="saveProduct">Save Product</button>
+                <button class="btn-edit" id="updateProduct" style="display: none;">Update Product</button>
+                <button class="btn-cancel" id="cancelProduct">Cancel</button>
+                <button class="btn-delete" id="deleteProduct" style="display: none;">Delete Product</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Gaming Nation</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="nav-icons">
+                    <a href="#" id="cartButton">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Level Up Your Gaming Experience</h1>
+            <p>Discover premium gaming mice, keyboards, headphones, and mouse pads designed for competitive gamers and enthusiasts. Elevate your setup with cutting-edge technology and ergonomic design.</p>
+            <a href="#products" class="cta-button">Shop Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Featured Products</h2>
+            
+            <div class="category-filter">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="mice">Mice</button>
+                <button class="category-btn" data-category="keyboards">Keyboards</button>
+                <button class="category-btn" data-category="headphones">Headphones</button>
+                <button class="category-btn" data-category="mouse-pads">Mouse Pads</button>
+            </div>
+            
+            <div class="products-grid" id="productsContainer">
+                <!-- Product cards will be generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Gaming Nation</h3>
+                    <p>Your ultimate destination for premium gaming accessories. We provide the best equipment to enhance your gaming performance and experience.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#products">Products</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                  
+                    <p><i class="fas fa-phone"></i> +972 515913869</p>
+                    <p><i class="fas fa-envelope"></i> workgost037@gmail.com</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Purchase Info</h3>
+                    <p>All purchases are made via WhatsApp. Click the WhatsApp button on any product to contact us and place your order.</p>
+                    <p>We offer secure payment and fast delivery worldwide.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Gaming Nation. All rights reserved. | Designed for gamers, by gamers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // PRODUCT DATABASE - Auto-updated via Admin Panel
+        // ============================================
+        // Image paths: Use local 'photo/' directory or external URLs
+        // Categories: mice, keyboards, headphones, mouse-pads
+        // ============================================
+        
+    let products = [
+  {
+    "id": 1,
+    "name": "Ajazz AJ179 Pro",
+    "category": "mice",
+    "description": "Tri-mode connection, PAW3395 sensor, 400mAh battery, magnetic charging base with built-in 8K receiver.",
+    "price": 49.99,
+    "originalPrice": 59.99,
+    "image": "photo/ajazzmouse.jpg",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "Ajazz AJ179 Pro Black",
+    "category": "mice",
+    "description": "Tri-mode connection wireless gaming mouse with PAW3395 sensor and magnetic charging base.",
+    "price": 49.99,
+    "originalPrice": null,
+    "image": "photo/ajazzmouse(2).jpg",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "name": "Attack Shark R5 Carbon Fiber",
+    "category": "mice",
+    "description": "Ultra-lightweight wireless gaming mouse with carbon fiber design, weighs only 39g.",
+    "price": 44.99,
+    "originalPrice": null,
+    "image": "photo/AttackSharku5.jpg",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "name": "Attack Shark R5",
+    "category": "mice",
+    "description": "Carbon fiber wireless gaming mouse with ultra-lightweight design for competitive gaming.",
+    "price": 44.99,
+    "originalPrice": 49.99,
+    "image": "photo/AttackSharku5(2).jpg",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "name": "Aula Hero Keyboard",
+    "category": "keyboards",
+    "description": "Magnetic switch keyboard with customizable RGB lighting and ergonomic design.",
+    "price": 89.99,
+    "originalPrice": 109.99,
+    "image": "photo/aulaherokeyboard.jpg",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "name": "Aula X68 HE Keyboard",
+    "category": "keyboards",
+    "description": "High-end magnetic switch keyboard with advanced customization features.",
+    "price": 99.99,
+    "originalPrice": null,
+    "image": "photo/aulaherokeyboard(2).jpg",
+    "featured": false
+  }
+];
+
+        // Shopping cart
+        let cart = [];
+        let cartCount = 0;
+
+        // DOM elements
+        const productsContainer = document.getElementById('productsContainer');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const cartButton = document.getElementById('cartButton');
+        const cartCountElement = document.querySelector('.cart-count');
+        const adminToggle = document.getElementById('adminToggle');
+        const adminModal = document.getElementById('adminModal');
+        const adminLogin = document.getElementById('adminLogin');
+        const adminCancel = document.getElementById('adminCancel');
+        const productModal = document.getElementById('productModal');
+        const saveProductBtn = document.getElementById('saveProduct');
+        const cancelProductBtn = document.getElementById('cancelProduct');
+        const updateProductBtn = document.getElementById('updateProduct');
+        const deleteProductBtn = document.getElementById('deleteProduct');
+        
+        // Admin credentials
+        const adminEmail = "workgost037@gmail.com";
+        const adminPassword = "123work321";
+        
+        // Current state
+        let currentCategory = 'all';
+        let isAdminLoggedIn = false;
+        let editingProductId = null;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderProducts();
+            setupEventListeners();
+            updateCategoryFilter();
+        });
+
+        // Render products based on current category
+        function renderProducts() {
+            productsContainer.innerHTML = '';
+            
+            const filteredProducts = currentCategory === 'all' 
+                ? products 
+                : products.filter(product => product.category === currentCategory);
+            
+            if (filteredProducts.length === 0) {
+                productsContainer.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                        <h3 style="color: var(--gray);">No products found in this category</h3>
+                        <p>Try selecting a different category or check back later for new arrivals.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = `product-card ${product.featured ? 'featured' : ''}`;
+                productCard.dataset.id = product.id;
+                
+                const discount = product.originalPrice 
+                    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
+                    : 0;
+                
+                // Handle image path - check if it's a local photo or external URL
+                const imageSrc = product.image.startsWith('photo/') || product.image.startsWith('http') 
+                    ? product.image 
+                    : `https://via.placeholder.com/300x200/232339/ffffff?text=${encodeURIComponent(product.name)}`;
+                
+                productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${imageSrc}" alt="${product.name}" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x200/232339/ffffff?text=Image+Not+Found'">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${formatCategoryName(product.category)}</span>
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">
+                            <span class="current-price">$${product.price.toFixed(2)}</span>
+                            ${product.originalPrice ? `<span class="original-price">$${product.originalPrice.toFixed(2)}</span>` : ''}
+                            ${discount > 0 ? `<span class="discount-badge">${discount}% OFF</span>` : ''}
+                        </div>
+                        <div class="product-actions">
+                            <button class="action-btn whatsapp" onclick="contactViaWhatsApp('${product.name}', ${product.price})">
+                                <i class="fab fa-whatsapp"></i> Buy Now
+                            </button>
+                            <button class="action-btn cart" onclick="addToCart(${product.id})">
+                                <i class="fas fa-cart-plus"></i> Add to Cart
+                            </button>
+                            ${isAdminLoggedIn ? `
+                                <button class="action-btn" onclick="editProduct(${product.id})" style="background-color: var(--warning);">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+            
+            // Add animation to cards
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach((card, index) => {
+                card.style.animation = `fadeInUp 0.5s ease ${index * 0.1}s both`;
+            });
+        }
+
+        // Format category name for display
+        function formatCategoryName(category) {
+            const names = {
+                'mice': 'Gaming Mouse',
+                'keyboards': 'Keyboard',
+                'headphones': 'Headset',
+                'mouse-pads': 'Mouse Pad'
+            };
+            return names[category] || category.charAt(0).toUpperCase() + category.slice(1);
+        }
+
+        // Update category filter buttons based on available products
+        function updateCategoryFilter() {
+            // Get all unique categories from products
+            const categories = ['all', ...new Set(products.map(p => p.category))];
+            
+            // Update the category filter section
+            const filterContainer = document.querySelector('.category-filter');
+            filterContainer.innerHTML = '';
+            
+            categories.forEach(category => {
+                const button = document.createElement('button');
+                button.className = `category-btn ${category === currentCategory ? 'active' : ''}`;
+                button.dataset.category = category;
+                button.textContent = formatCategoryName(category) + (category === 'all' ? 's' : 's');
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.dataset.category;
+                    renderProducts();
+                });
+                filterContainer.appendChild(button);
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Admin toggle
+            adminToggle.addEventListener('click', function() {
+                if (isAdminLoggedIn) {
+                    // If already logged in, show product management modal
+                    document.getElementById('productModal').classList.add('active');
+                    resetProductForm();
+                } else {
+                    // Otherwise show login modal
+                    adminModal.classList.add('active');
+                }
+            });
+            
+            // Admin login
+            adminLogin.addEventListener('click', function() {
+                const email = document.getElementById('adminEmail').value;
+                const password = document.getElementById('adminPassword').value;
+                
+                if (email === adminEmail && password === adminPassword) {
+                    isAdminLoggedIn = true;
+                    adminModal.classList.remove('active');
+                    alert('Admin login successful! You can now manage products.');
+                    adminToggle.innerHTML = '<i class="fas fa-plus"></i>';
+                    adminToggle.style.backgroundColor = 'var(--success)';
+                    renderProducts(); // Re-render to show edit buttons
+                } else {
+                    alert('Invalid email or password!');
+                }
+            });
+            
+            // Admin cancel
+            adminCancel.addEventListener('click', function() {
+                adminModal.classList.remove('active');
+            });
+            
+            // Save product
+            saveProductBtn.addEventListener('click', function() {
+                const name = document.getElementById('productName').value;
+                const category = document.getElementById('productCategory').value;
+                const description = document.getElementById('productDescription').value;
+                const price = parseFloat(document.getElementById('productPrice').value);
+                const originalPriceInput = document.getElementById('productOriginalPrice').value;
+                const originalPrice = originalPriceInput ? parseFloat(originalPriceInput) : null;
+                const image = document.getElementById('productImage').value;
+                const featured = document.getElementById('productFeatured').checked;
+                
+                if (!name || !description || !price) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                const newProduct = {
+                    id: products.length > 0 ? Math.max(...products.map(p => p.id)) + 1 : 1,
+                    name,
+                    category,
+                    description,
+                    price,
+                    originalPrice,
+                    image: image || `photo/${name.toLowerCase().replace(/\s+/g, '')}.jpg`,
+                    featured
+                };
+                
+                products.push(newProduct);
+                productModal.classList.remove('active');
+                renderProducts();
+                updateCategoryFilter();
+                updateSourceCode();
+                alert('Product added successfully! Source code updated.');
+            });
+            
+            // Update product
+            updateProductBtn.addEventListener('click', function() {
+                const name = document.getElementById('productName').value;
+                const category = document.getElementById('productCategory').value;
+                const description = document.getElementById('productDescription').value;
+                const price = parseFloat(document.getElementById('productPrice').value);
+                const originalPriceInput = document.getElementById('productOriginalPrice').value;
+                const originalPrice = originalPriceInput ? parseFloat(originalPriceInput) : null;
+                const image = document.getElementById('productImage').value;
+                const featured = document.getElementById('productFeatured').checked;
+                
+                if (!name || !description || !price) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+                
+                const index = products.findIndex(p => p.id === editingProductId);
+                if (index !== -1) {
+                    products[index] = {
+                        ...products[index],
+                        name,
+                        category,
+                        description,
+                        price,
+                        originalPrice,
+                        image: image || products[index].image,
+                        featured
+                    };
+                    
+                    productModal.classList.remove('active');
+                    renderProducts();
+                    updateCategoryFilter();
+                    updateSourceCode();
+                    alert('Product updated successfully! Source code updated.');
+                }
+            });
+            
+            // Delete product
+            deleteProductBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to delete this product? This will update the source code.')) {
+                    products = products.filter(p => p.id !== editingProductId);
+                    productModal.classList.remove('active');
+                    renderProducts();
+                    updateCategoryFilter();
+                    updateSourceCode();
+                    alert('Product deleted successfully! Source code updated.');
+                }
+            });
+            
+            // Cancel product modal
+            cancelProductBtn.addEventListener('click', function() {
+                productModal.classList.remove('active');
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === adminModal) {
+                    adminModal.classList.remove('active');
+                }
+                if (event.target === productModal) {
+                    productModal.classList.remove('active');
+                }
+            });
+        }
+
+        // WhatsApp contact function
+        function contactViaWhatsApp(productName, price) {
+            const message = `Hello Gaming Nation! I'm interested in purchasing the ${productName} for $${price.toFixed(2)}. Can you provide more details?`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/972515913869?text=${encodedMessage}`, '_blank');
+        }
+
+        // Add to cart function
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                cartCount++;
+                cartCountElement.textContent = cartCount;
+                
+                // Animate the cart icon
+                cartButton.style.animation = 'pulse 0.5s';
+                setTimeout(() => {
+                    cartButton.style.animation = '';
+                }, 500);
+                
+                alert(`${product.name} added to cart!`);
+            }
+        }
+
+        // Edit product function
+        function editProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                editingProductId = productId;
+                document.getElementById('productName').value = product.name;
+                document.getElementById('productCategory').value = product.category;
+                document.getElementById('productDescription').value = product.description;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('productOriginalPrice').value = product.originalPrice || '';
+                document.getElementById('productImage').value = product.image;
+                document.getElementById('productFeatured').checked = product.featured;
+                
+                // Show update and delete buttons, hide save button
+                saveProductBtn.style.display = 'none';
+                updateProductBtn.style.display = 'block';
+                deleteProductBtn.style.display = 'block';
+                
+                productModal.classList.add('active');
+            }
+        }
+
+        // Reset product form
+        function resetProductForm() {
+            document.getElementById('productName').value = '';
+            document.getElementById('productCategory').value = 'mice';
+            document.getElementById('productDescription').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('productOriginalPrice').value = '';
+            document.getElementById('productImage').value = '';
+            document.getElementById('productFeatured').checked = false;
+            
+            // Show save button, hide update and delete buttons
+            saveProductBtn.style.display = 'block';
+            updateProductBtn.style.display = 'none';
+            deleteProductBtn.style.display = 'none';
+            
+            editingProductId = null;
+        }
+
+        // Update the source code with current product data
+        function updateSourceCode() {
+            console.log('=== SOURCE CODE UPDATE ===');
+            console.log('Current product database (copy this to replace the products array):');
+            console.log(JSON.stringify(products, null, 2));
+            
+            // In a real implementation, this would send data to a server
+            // or update a database. For this demo, we'll show the updated code.
+            
+            // Create a downloadable file with the updated source
+            const sourceCode = `
+// ============================================
+// UPDATED PRODUCT DATABASE - Last Modified: ${new Date().toLocaleString()}
+// ============================================
+let products = ${JSON.stringify(products, null, 2)};
+            `.trim();
+            
+            // Display update notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: var(--success);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                z-index: 10000;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                animation: fadeInUp 0.5s;
+                max-width: 400px;
+            `;
+            notification.innerHTML = `
+                <strong>Source Code Updated</strong>
+                <p>Product database has been updated. Copy the new array from console.</p>
+                <button onclick="downloadSourceCode()" style="background: white; color: var(--success); border: none; padding: 5px 10px; border-radius: 5px; margin-top: 10px; cursor: pointer;">
+                    Download Updated Code
+                </button>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.5s';
+                setTimeout(() => notification.remove(), 500);
+            }, 5000);
+        }
+
+        // Download updated source code
+        function downloadSourceCode() {
+            const sourceCode = `// Gaming Nation Product Database
+// Last Updated: ${new Date().toLocaleString()}
+// Total Products: ${products.length}
+
+let products = ${JSON.stringify(products, null, 2)};
+
+// Export for use in main application
+export { products };
+            `;
+            
+            const blob = new Blob([sourceCode], { type: 'text/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `gaming-nation-products-${new Date().toISOString().split('T')[0]}.js`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
